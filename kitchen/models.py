@@ -41,5 +41,9 @@ class Dish(models.Model):
     cooks = models.ManyToManyField(Cook, related_name="dish")
     ingredients = models.ManyToManyField(Ingredient, related_name="meals")
 
+    class Meta:
+        verbose_name = "dish"
+        verbose_name_plural = "dishes"
+
     def __str__(self):
         return self.name
