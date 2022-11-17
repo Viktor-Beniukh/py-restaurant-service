@@ -10,6 +10,9 @@
           <a href="{{ cook.get_absolute_url }}">
             {{ cook.username }} ({{ cook.first_name }} {{ cook.last_name }})
           </a>
+          {% if user.username == cook.username %}
+            <strong>(Me)</strong>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>
