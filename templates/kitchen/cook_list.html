@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Cook List</h1>
+  <hr>
+  {% if cook_list %}
+    <ul>
+      {% for cook in cook_list %}
+        <li>
+          <a href="{{ cook.get_absolute_url }}">
+            {{ cook.username }} ({{ cook.first_name }} {{ cook.last_name }})
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no cooks in list</p>
+  {% endif %}
+  <hr>
+  <br>
+{% endblock %}

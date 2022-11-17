@@ -1,11 +1,11 @@
 <ul class="sidebar-nav">
   <li><a href="{% url 'kitchen:index' %}">Home page</a></li>
   <br>
-  <li><a href="#">Cooks</a></li>
+  <li><a href="{% url 'kitchen:cook-list' %}">Cooks</a></li>
   <br>
-  <li><a href="#">Dish types</a></li>
+  <li><a href="{% url 'kitchen:dish_type-list' %}">Dish types</a></li>
   <br>
-  <li><a href="#">Dishes</a></li>
+  <li><a href="{% url 'kitchen:dish-list' %}">Dishes</a></li>
   <br>
-  <li><a href="#">Ingredients</a></li>
+  <li><a href="{% url 'kitchen:ingredient-list' %}">Ingredients</a></li>
 </ul>

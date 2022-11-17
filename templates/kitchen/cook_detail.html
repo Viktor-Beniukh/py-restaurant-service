@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1><strong>Cook</strong></h1>
+    <hr>
+    <p>
+      <strong>Full name:</strong>
+      {{ cook.first_name }} {{ cook.last_name }}
+    </p>
+    <p><strong>E-mail:</strong> {{ cook.email }} </p>
+    <p><strong>Years of experience:</strong> {{ cook.years_of_experience }} years</p>
+
+    <br>
+
+    <h3><strong>Dishes:</strong></h3>
+    <hr>
+    {% for dish in cook.dish.all %}
+      <ul>
+        <li>
+          <p><strong>id:</strong> {{ dish.id }} </p>
+          <p><strong>Dish name:</strong> {{ dish.name }}</p>
+          <p><strong>Dish type name:</strong> {{ dish.dish_type.name }}</p>
+
+        </li>
+        <br>
+      </ul>
+    {% endfor %}
+{% endblock %}
