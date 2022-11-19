@@ -1,8 +1,44 @@
 body {
-    margin-top: 50px;
+    margin-top: 100px;
+    margin-left: 20px;
+    background: #CD853F url(/static/images/restaurant.jpg) right no-repeat;
+    background-attachment: fixed;
+    padding-left: 20px;
+    opacity: 0.7;
+
 }
 
-.sidebar-nav {
-    padding: 0 10px;
-    list-style: none;
+.sidebar-nav .list-group-item {
+    background-color: #F4A460;
+    border-radius: 20px;
+}
+
+.col-cm-10 {
+    margin-left: 80px;
+    color: black;
+
+}
+
+.table {
+    width: 400px;
+    height: 100px;
+    color: black;
+    border: 3px solid #CD853F;
+}
+
+td {
+    padding: 3px;
+    border: 3px solid #CD853F;
+}
+
+th {
+    border-bottom: 3px solid #CD853F;
+}
+
+.page-link {
+    background-color: chocolate;
+}
+
+span>.page-link {
+    background-color: brown;
 }

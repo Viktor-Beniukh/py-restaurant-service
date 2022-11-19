@@ -1,19 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Ingredient List</h1>
-  <hr>
-  {% if ingredient_list %}
-  <ul>
-    {% for ingredient in ingredient_list %}
-      <li>
-        <p>{{ ingredient.name }}</p>
-      </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-    <p>There are no ingredient in list</p>
-  {% endif %}
-  <hr>
-  <br>
+  <div class="container-fluid">
+    <div class="container">
+      <h1>
+        Ingredient List
+        <a class="btn btn-primary link-to-page" href="{% url 'kitchen:ingredient-create' %}">
+        Create
+        </a>
+      </h1>
+      <br>
+      {% if ingredient_list %}
+        <table class="table table-striped">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+
+          {% for ingredient in ingredient_list %}
+            <tr>
+              <td>
+                {{ ingredient.id }}
+              </td>
+              <td>
+                {{ ingredient.name }}
+              </td>
+              <td>
+                <a href="{% url 'kitchen:ingredient-update' pk=ingredient.id %}">Update</a>
+              </td>
+              <td>
+                <a href="{% url 'kitchen:ingredient-delete' pk=ingredient.id %}">Delete</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+
+      {% else %}
+        <p>There are no ingredient in list</p>
+      {% endif %}
+      <br><br>
+    </div>
+
+  </div>
+
 {% endblock %}
