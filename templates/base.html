@@ -18,13 +18,13 @@
   <div class="container-fluid">
     <div class="row">
 
-      <div class="col-cm-2">
+      <div class="col-cm-1">
         {% block sidebar %}
           {% include "includes/sidebar.html" %}
         {% endblock %}
       </div>
 
-      <div class="col-cm-10">
+      <div class="col-md-4">
         {% block content %}{% endblock %}
 
         {% block pagination %}

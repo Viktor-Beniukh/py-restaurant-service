@@ -1,22 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1><strong>Dish detail</strong></h1>
-    <table class="table table-striped table-bordered">
+  <h1>
+    <strong>Dish detail</strong>
+    <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">Delete</a>
+    <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-secondary link-to-page">Update</a>
+    <br>
+    {% if dish in user.dish.all %}
+      <a href="{% url 'kitchen:toggle-dish-assign' pk=dish.id %}" class="btn btn-danger link-to-page">
+        Delete me from this dish
+      </a>
+    {% else %}
+      <a href="{% url 'kitchen:toggle-dish-assign' pk=dish.id %}" class="btn btn-success link-to-page">
+        Assign me from this dish
+      </a>
+    {% endif %}
+  </h1>
+    <br><br>
+    <table class="table table-striped">
       <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Dish type</th>
+        <th class="wide">Ingredients</th>
         <th>Cooks</th>
-        <th>Ingredients</th>
-        <th>Update</th>
-        <th>Delete</th>
       </tr>
 
       <tr>
         <td>{{ dish.id }}</td>
         <td>{{ dish.name }}</td>
         <td>{{ dish.dish_type }}</td>
+        <td>
+            {% for ingredient in dish.ingredients.all %}
+              <li><i>{{ ingredient.name }}</i></li>
+            {% endfor %}
+        </td>
         <td>
           {% for cook in dish.cooks.all %}
             <p>
@@ -26,17 +44,7 @@
             </p>
           {% endfor %}
         </td>
-        <td>
-          {% for ingredient in dish.ingredients.all %}
-            <p>{{ ingredient.name }}</p>
-          {% endfor %}
-        </td>
-        <td>
-          <a href="{% url 'kitchen:dish-update' pk=dish.id %}">Update</a>
-        </td>
-        <td>
-          <a href="{% url 'kitchen:dish-delete' pk=dish.id %}">Delete</a>
-        </td>
       </tr>
     </table>
+
 {% endblock %}

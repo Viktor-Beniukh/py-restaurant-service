@@ -17,6 +17,10 @@ from kitchen.views import (
     IngredientDeleteView,
     CookListView,
     CookDetailView,
+    CookCreateView,
+    CookDeleteView,
+    CookYearExperienceUpdateView,
+    toggle_assign_to_dish,
 )
 
 urlpatterns = [
@@ -26,15 +30,6 @@ urlpatterns = [
         DishTypeListView.as_view(),
         name="dish_type-list",
     ),
-    path("dishes/", DishListView.as_view(), name="dish-list"),
-    path("dishes/<int:pk>/", DishDetailView.as_view(), name="dish-detail"),
-    path("cooks/", CookListView.as_view(), name="cook-list"),
-    path("cooks/<int:pk>/", CookDetailView.as_view(), name="cook-detail"),
-    path("ingredients/", IngredientListView.as_view(), name="ingredient-list"),
-
-    path("dishes/create/", DishCreateView.as_view(), name="dish-create"),
-    path("dishes/<int:pk>/update/", DishUpdateView.as_view(), name="dish-update"),
-    path("dishes/<int:pk>/delete/", DishDeleteView.as_view(), name="dish-delete"),
     path(
         "dish_types/create/",
         DishTypeCreateView.as_view(),
@@ -50,7 +45,17 @@ urlpatterns = [
         DishTypeDeleteView.as_view(),
         name="dish_type-delete",
     ),
-
+    path("dishes/", DishListView.as_view(), name="dish-list"),
+    path("dishes/<int:pk>/", DishDetailView.as_view(), name="dish-detail"),
+    path("dishes/create/", DishCreateView.as_view(), name="dish-create"),
+    path("dishes/<int:pk>/update/", DishUpdateView.as_view(), name="dish-update"),
+    path("dishes/<int:pk>/delete/", DishDeleteView.as_view(), name="dish-delete"),
+    path(
+        "dishes/<int:pk>/toggle-assign/",
+        toggle_assign_to_dish,
+        name="toggle-dish-assign",
+    ),
+    path("ingredients/", IngredientListView.as_view(), name="ingredient-list"),
     path(
         "ingredients/create/",
         IngredientCreateView.as_view(),
@@ -65,6 +70,19 @@ urlpatterns = [
         "ingredients/<int:pk>/delete/",
         IngredientDeleteView.as_view(),
         name="ingredient-delete",
+    ),
+    path("cooks/", CookListView.as_view(), name="cook-list"),
+    path("cooks/<int:pk>/", CookDetailView.as_view(), name="cook-detail"),
+    path("cooks/create/", CookCreateView.as_view(), name="cook-create"),
+    path(
+        "cooks/<int:pk>/update/",
+        CookYearExperienceUpdateView.as_view(),
+        name="cook-update",
+    ),
+    path(
+        "cooks/<int:pk>/delete/",
+        CookDeleteView.as_view(),
+        name="cook-delete",
     ),
 ]
 
