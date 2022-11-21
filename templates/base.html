@@ -12,6 +12,7 @@
         crossorigin="anonymous">
 
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="shortcut icon" type="image/png" href="/static/images/favicon.png"/>
 </head>
 <body>
 
@@ -23,8 +24,10 @@
           {% include "includes/sidebar.html" %}
         {% endblock %}
       </div>
+      <br>
 
       <div class="col-md-4">
+        <br>
         {% block content %}{% endblock %}
 
         {% block pagination %}

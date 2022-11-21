@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
+  <br>
+  <div class="container-fluid">
+    <h1>
     <strong>Dish detail</strong>
     <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">Delete</a>
     <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-secondary link-to-page">Update</a>
@@ -15,8 +17,15 @@
         Assign me from this dish
       </a>
     {% endif %}
-  </h1>
-    <br><br>
+    </h1>
+    <br><br><br>
+
+    <h5>
+      <ul>
+        <li><em>{{ dish.description }}</em></li>
+      </ul>
+    </h5>
+
     <table class="table table-striped">
       <tr>
         <th>ID</th>
@@ -46,5 +55,7 @@
         </td>
       </tr>
     </table>
+
+  </div>
 
 {% endblock %}

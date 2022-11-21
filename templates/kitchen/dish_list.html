@@ -2,10 +2,12 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
+
   <div class="container-fluid">
     <div class="container">
       <h1>
         Dish List
+        <br>
         <a class="btn btn-primary link-to-page" href="{% url 'kitchen:dish-create' %}"> Create</a>
       </h1>
 

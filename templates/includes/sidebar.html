@@ -1,4 +1,8 @@
 <ul class="sidebar-nav list-group">
+  <div class="logo">
+    <p><img src="/static/images/restaurant-menu.png" alt=""></p>
+  </div>
+
   {% if user.is_authenticated %}
     <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
     <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>

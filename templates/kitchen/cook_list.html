@@ -2,45 +2,46 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
+    <div class="container-fluid">
+      <div class="container">
+        <h1>
+          Cook List
+          <br>
+          <a href="{% url 'kitchen:cook-create' %}" class="btn btn-primary link-to-page">
+            Create
+          </a>
+        </h1>
 
-    <h1>
-      Cook List
-      <a href="{% url 'kitchen:cook-create' %}" class="btn btn-primary link-to-page">
-        Create
-      </a>
-    </h1>
+        <form action="" method="get" class="form-inline">
+          {{ search_form|crispy }}
+          <input class="btn btn-secondary" type="submit" value="🔎">
+        </form>
+        <br><br>
 
-    <form action="" method="get" class="form-inline">
-      {{ search_form|crispy }}
-      <input class="btn btn-secondary" type="submit" value="🔎">
-    </form>
-    <br><br>
+        {% if cook_list %}
+        <table class="table table-striped">
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>First name</th>
+            <th>Last <br>name</th>
+            <th>Year of experience</th>
+          </tr>
+          {% for cook in cook_list %}
+          <tr>
+            <td>{{ cook.id }}</td>
+            <td><a href="{{ cook.get_absolute_url }}">{{ cook.username }} {% if user == cook %} (Me){% endif %}</a></td>
+            <td>{{ cook.first_name }}</td>
+            <td>{{ cook.last_name }}</td>
+            <td>{{ cook.years_of_experience }}</td>
+          </tr>
+          {% endfor %}
+        </table>
 
-    {% if cook_list %}
-    <table class="table table-striped">
-      <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last <br>name</th>
-        <th>Year of experience</th>
-      </tr>
-      {% for cook in cook_list %}
-      <tr>
-        <td>{{ cook.id }}</td>
-        <td><a href="{{ cook.get_absolute_url }}">{{ cook.username }} {% if user == cook %} (Me){% endif %}</a></td>
-        <td>{{ cook.first_name }}</td>
-        <td>{{ cook.last_name }}</td>
-        <td>{{ cook.years_of_experience }}</td>
-      </tr>
-      {% endfor %}
-    </table>
-
-    {% else %}
-      <p>There are no cooks in list</p>
-    {% endif %}
-    <br><br>
-
-
-
+        {% else %}
+          <p>There are no cooks in list</p>
+        {% endif %}
+        <br><br>
+      </div>
+    </div>
 {% endblock %}
