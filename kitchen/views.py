@@ -136,7 +136,7 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
-    queryset = Dish.objects.all().prefetch_related("ingredients")
+    queryset = Dish.objects.prefetch_related("ingredients")
 
 
 class IngredientListView(LoginRequiredMixin, generic.ListView):

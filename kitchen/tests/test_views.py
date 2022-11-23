@@ -153,7 +153,7 @@ class PublicCookTests(TestCase):
         self.assertNotEqual(response.status_code, 200)
 
 
-class PrivateDriverTests(TestCase):
+class PrivateCookTests(TestCase):
     def setUp(self) -> None:
         self.user = get_user_model().objects.create_user(
             username="user_name",
@@ -162,17 +162,17 @@ class PrivateDriverTests(TestCase):
         self.client.force_login(self.user)
 
     def test_retrieve_cooks(self):
-        get_user_model().objects.create(
+        Cook.objects.create(
             username="CookOne",
             password="cooker111",
             years_of_experience=6,
         )
-        get_user_model().objects.create(
+        Cook.objects.create(
             username="CookTwo",
             password="cooker222",
             years_of_experience=3,
         )
-        get_user_model().objects.create(
+        Cook.objects.create(
             username="CookThree",
             password="cooker333",
             years_of_experience=20,
