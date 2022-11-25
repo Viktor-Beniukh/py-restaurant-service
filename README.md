@@ -4,7 +4,7 @@ Django project for managing local restaurant with cooks, dish types, dishes and 
 
 ## Check it out!
 
-[Restaurant Service project deployed to Render](PAST_LINK_HERE)
+[Restaurant Service project deployed to Render](https://restaurant-service.onrender.com/)
 
 ## Installation
 
