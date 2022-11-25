@@ -6,6 +6,7 @@ Django project for managing local restaurant with cooks, dish types, dishes and 
 
 [Restaurant Service project deployed to Render](https://restaurant-service.onrender.com/)
 
+
 ## Installation
 
 Python3 must be already installed
