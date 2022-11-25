@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid">
+
+      <div>
+        <h1>Restaurant Service</h1>
+        <hr>
+        <p>Welcome to the Best Restaurant Ever!</p>
+        <hr>
+        <br><br>
+        <h2>Dynamic content</h2>
+        <hr>
+        <p>The Restaurant service has the following record counts:</p>
+        <ul>
+          <li><strong>Cooks:</strong> {{ num_cooks }}</li>
+          <li><strong>Dish types:</strong> {{ num_dish_types }}</li>
+          <li><strong>Dishes:</strong> {{ num_dishes }}</li>
+          <li><strong>Ingredients:</strong> {{ num_ingredients }}</li>
+        </ul>
+        <br><br><br><br><br>
+
+        <p>
+          You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}
+        </p>
+      </div>
+  </div>
+
+{% endblock %}
