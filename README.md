@@ -6,6 +6,9 @@ Django project for managing local restaurant with cooks, dish types, dishes and 
 
 [Restaurant Service project deployed to Render](https://restaurant-service.onrender.com/)
 
+You can use following user for test functional:
+- Login: `user.name`
+- Password: `user12345`
 
 ## Installation
 
