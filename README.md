@@ -2,6 +2,7 @@
 
 Django project for managing local restaurant with cooks, dish types, dishes and also ingredients to dishes in the kitchen.
 
+
 ## Check it out!
 
 [Restaurant Service project deployed to Render](https://restaurant-service.onrender.com/)
@@ -9,6 +10,19 @@ Django project for managing local restaurant with cooks, dish types, dishes and 
 You can use following user for test functional:
 - Login: `user.name`
 - Password: `user12345`
+
+
+## Demo
+
+![Website Interface](demo.png)
+
+
+## Features
+
+* Authentication functionally for Cook/User
+* Managing cooks, dish types, dishes and ingredients to dishes directly from website
+* Powerful admin panel for advanced managing
+
 
 ## Installation
 
@@ -22,13 +36,3 @@ source venv/bin/activate
 pip install -r requirements.txt
 python manage.py runserver   # starts Django Server
 ```
-
-## Features
-
-* Authentication functionally for Cook/User
-* Managing cooks, dish types, dishes and ingredients to dishes directly from website
-* Powerful admin panel for advanced managing
-
-## Demo
-
-![Website Interface](demo.png)
